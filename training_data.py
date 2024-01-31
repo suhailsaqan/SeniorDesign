@@ -1,19 +1,12 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from roboflow import Roboflow
+# from roboflow import Roboflow
 
-rf = Roboflow(api_key="your_api_key")  # Replace "your_api_key" with your actual Roboflow API key
-project = rf.workspace("paingkl").project("2015-bullseye")
-dataset = project.version(1).download("tensorflow")
-
-# The downloaded dataset is typically in a zip file, so you need to extract it
-import zipfile
-import os
-
-with zipfile.ZipFile(dataset, 'r') as zip_ref:
-    zip_ref.extractall('./')  # Extract to the current directory
+# rf = Roboflow(api_key="your_api_key")  # Replace "your_api_key" with your actual Roboflow API key
+# project = rf.workspace("paingkl").project("2015-bullseye")
+# dataset = project.version(1).download("tensorflow")
 
 # Specify the path to your extracted dataset
-dataset_path = './export/'
+dataset_path = './2015-bullseye-1/'
 
 # Define data generators for training set
 train_datagen = ImageDataGenerator(

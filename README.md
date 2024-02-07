@@ -15,4 +15,4 @@
 
 # Pretrained Model
 
-Download this model from Google Drive and paste it in the project folder.
+Download [this](https://drive.google.com/file/d/1fzlnS9qHUWDJNv_4l8yLuOJggUO9mT93/view?usp=drive_link) model from Google Drive and paste it in the project folder.

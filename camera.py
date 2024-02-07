@@ -25,6 +25,8 @@ while True:
     # Make a prediction
     prediction = model.predict(img_array)
 
+    print(prediction[0][0])
+
     # Extract the prediction result
     if prediction[0][0] > 0.5:  # Adjust the threshold as needed
         label = 'Bullseye'

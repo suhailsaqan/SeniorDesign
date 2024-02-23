@@ -20,8 +20,8 @@ while True:
      # Calculate the center of the frame
     height, width = frame.shape[:2]
     center_coordinates = (width // 2, height // 2)
-    center_width = width //2
-    center_height = height //2
+    center_width = width // 2
+    center_height = height // 2
     
     # Draw a blue dot (circle) at the center of the frame
     # Parameters: image, center_coordinates, radius, color(BGR), thickness

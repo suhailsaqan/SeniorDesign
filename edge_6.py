@@ -7,6 +7,7 @@ import numpy as np
 # Initialize the camera
 cap = cv2.VideoCapture(0)  # '0' is usually the default ID for the built-in camera
 
+errorMargin = 20
 
 
 while True:
@@ -80,15 +81,20 @@ while True:
             cv2.putText(frame, f"({i[0]}, {i[1]})", (i[0]+5, i[1]+5), 
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 255), 2)
             cv2.line(frame,center_coordinates,(i[0],i[1]),(0, 255, 0), 3)
-            if((i[0]>(center_width-30))&(i[0]<(center_width+30))):
+            if((i[0]>(center_width-errorMargin))&(i[0]<(center_width+errorMargin))&(i[1]<(center_height+errorMargin))):
                string1 = "TRUE"
+            elif(i[0]>(center_width-errorMargin)):
+                string1 = "LEFT"
             else:
-                string1 = "FALSE"
+                string1 = "RIGHT"
+                
 
-            if((string1 == "TRUE")&((i[1]>(center_height-30))&(i[1]<(center_height+30)))):
+            if((string1 == "TRUE")&(i[1]>(center_height-errorMargin))):
                 string2 = "TRUE"
             else:
                 string2 = "FALSE"
+
+            
 
             cv2.putText(frame,string1,(5,30),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
             cv2.putText(frame,string2,(5,80),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)

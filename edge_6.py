@@ -9,6 +9,24 @@ cap = cv2.VideoCapture(0)  # '0' is usually the default ID for the built-in came
 
 errorMargin = 20
 
+def nothing(x):
+    pass
+
+cv2.namedWindow('Trackbars')
+
+cv2.createTrackbar('Lower H 1', 'Trackbars', 0, 179, nothing)
+cv2.createTrackbar('Lower S 1', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Lower V 1', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Upper H 1', 'Trackbars', 0, 179, nothing)
+cv2.createTrackbar('Upper S 1', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Upper V 1', 'Trackbars', 0, 255, nothing)
+
+cv2.createTrackbar('Lower H 2', 'Trackbars', 0, 179, nothing)
+cv2.createTrackbar('Lower S 2', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Lower V 2', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Upper H 2', 'Trackbars', 0, 179, nothing)
+cv2.createTrackbar('Upper S 2', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Upper V 2', 'Trackbars', 0, 255, nothing)
 
 while True:
     # Capture frame-by-frame
@@ -35,9 +53,35 @@ while True:
 
  # Define range for red color and create masks
     ## the numbers here stand for (hue, saturation, value)
-    lower_red1 = np.array([0, 50, 50]) 
-    upper_red1 = np.array([10, 255, 255])
+    
+    lower_h1 = cv2.getTrackbarPos('Lower H', 'Trackbars')
+    lower_s1 = cv2.getTrackbarPos('Lower S', 'Trackbars')
+    lower_v1 = cv2.getTrackbarPos('Lower V', 'Trackbars')
+    upper_h1 = cv2.getTrackbarPos('Upper H', 'Trackbars')
+    upper_s1 = cv2.getTrackbarPos('Upper S', 'Trackbars')
+    upper_v1 = cv2.getTrackbarPos('Upper V', 'Trackbars')
+    
+    lower_h2 = cv2.getTrackbarPos('Lower H', 'Trackbars')
+    lower_s2 = cv2.getTrackbarPos('Lower S', 'Trackbars')
+    lower_v2 = cv2.getTrackbarPos('Lower V', 'Trackbars')
+    upper_h2 = cv2.getTrackbarPos('Upper H', 'Trackbars')
+    upper_s2 = cv2.getTrackbarPos('Upper S', 'Trackbars')
+    upper_v2 = cv2.getTrackbarPos('Upper V', 'Trackbars')
+
+    # Convert frame to HSV
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    # Define the range for the red color using trackbar values
+    lower_red1 = np.array([lower_h1, lower_s1, lower_v1])
+    upper_red1 = np.array([upper_h1, upper_s1, upper_v1])
+    
+    # lower_red1 = np.array([0, 50, 50]) 
+    # upper_red1 = np.array([10, 255, 255])
     mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
+    
+    # Define the range for the red color using trackbar values
+    lower_red2 = np.array([lower_h2, lower_s2, lower_v2])
+    upper_red2 = np.array([upper_h2, upper_s2, upper_v2])
 
     lower_red2 = np.array([160, 50, 50])
     upper_red2 = np.array([180, 255, 255])

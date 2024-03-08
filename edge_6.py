@@ -14,19 +14,19 @@ def nothing(x):
 
 cv2.namedWindow('Trackbars')
 
-cv2.createTrackbar('Lower H 1', 'Trackbars', 0, 179, nothing)
-cv2.createTrackbar('Lower S 1', 'Trackbars', 0, 255, nothing)
-cv2.createTrackbar('Lower V 1', 'Trackbars', 0, 255, nothing)
-cv2.createTrackbar('Upper H 1', 'Trackbars', 0, 179, nothing)
-cv2.createTrackbar('Upper S 1', 'Trackbars', 0, 255, nothing)
-cv2.createTrackbar('Upper V 1', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Lower H 1', 'Trackbars', 0, 180, nothing)
+cv2.createTrackbar('Lower S 1', 'Trackbars', 50, 255, nothing)
+cv2.createTrackbar('Lower V 1', 'Trackbars', 50, 255, nothing)
+cv2.createTrackbar('Upper H 1', 'Trackbars', 10, 180, nothing)
+cv2.createTrackbar('Upper S 1', 'Trackbars', 255, 255, nothing)
+cv2.createTrackbar('Upper V 1', 'Trackbars', 255, 255, nothing)
 
-cv2.createTrackbar('Lower H 2', 'Trackbars', 0, 179, nothing)
-cv2.createTrackbar('Lower S 2', 'Trackbars', 0, 255, nothing)
-cv2.createTrackbar('Lower V 2', 'Trackbars', 0, 255, nothing)
-cv2.createTrackbar('Upper H 2', 'Trackbars', 0, 179, nothing)
-cv2.createTrackbar('Upper S 2', 'Trackbars', 0, 255, nothing)
-cv2.createTrackbar('Upper V 2', 'Trackbars', 0, 255, nothing)
+cv2.createTrackbar('Lower H 2', 'Trackbars', 160, 180, nothing)
+cv2.createTrackbar('Lower S 2', 'Trackbars', 50, 255, nothing)
+cv2.createTrackbar('Lower V 2', 'Trackbars', 50, 255, nothing)
+cv2.createTrackbar('Upper H 2', 'Trackbars', 180, 180, nothing)
+cv2.createTrackbar('Upper S 2', 'Trackbars', 255, 255, nothing)
+cv2.createTrackbar('Upper V 2', 'Trackbars', 255, 255, nothing)
 
 while True:
     # Capture frame-by-frame
